@@ -1,6 +1,7 @@
 # coding=utf-8
 #Desafio: no jogo da forca, ler de um arquivo pra depois continuar o jogo
 #Dica: https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
+# crie um arquivo nessa mesma pasta com o texto :)
 
 import random
 import sys
@@ -25,10 +26,7 @@ def escolherPalavra(text):
         y = random.Random().randint(0, len(lista1))
     return lista1[y]
 
-
-# ler do arquivo aqui!
-text=#"The master's project, abbreviated hence forth as, fits in the context of research and development of three-dimensional sensor data processing methods applied to mobile robotics. Such methods will be called services in this project, which include a 3D point cloud preprocessing algorithms with data segmentation, separation and identification of planar areas (ground track), and also detecting elements of interest (borders, barriers). Due to the large amount of data to be processed in a short time, these services should use parallel processing, using the GPU to perform partial or complete processing of these data. The application area in focus in this project aims to provide services for an ADAS system: autonomous and intelligent vehicles, forcing them to get close to a real-time processing system due to the autonomous direction of context."
-#fim da mudanca
+text = open('texto', 'r').read()
 
 charada = escolherPalavra(text)
 print "Bem vindo ao jogo da forca! Sua palavra tem " + str(len(charada)) + " letras."
