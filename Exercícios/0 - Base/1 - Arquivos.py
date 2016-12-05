@@ -27,7 +27,6 @@ def escolherPalavra(text):
     return lista1[y]
 
 text = open('texto', 'r').read()
-
 charada = escolherPalavra(text)
 print "Bem vindo ao jogo da forca! Sua palavra tem " + str(len(charada)) + " letras."
 oculto = ''
@@ -64,6 +63,7 @@ while j < 6:
                 print 'Perna direita na forca'
             if j == 5:
                 print 'Perna esquerda na forca. Vc perdeu :('
+                print 'Sua palavra era ' + charada + '.'
                 sys.exit()
             j = j + 1
         oculto = temporario
