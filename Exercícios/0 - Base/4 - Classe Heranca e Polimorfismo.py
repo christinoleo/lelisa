@@ -5,28 +5,28 @@
 
 class Pai:
     def imprime(self):
-        print 'Pai'
+        print('Pai')
 
 class Filho(Pai): #assim que fala qual a classe pai
     pass
 
 # descomenta pra ver
-# pai = Pai()
-# pai.imprime() #imprime pai
-# filho = Filho()
-# filho.imprime() #imprime pai tb
+pai = Pai()
+pai.imprime() #imprime pai
+filho = Filho()
+filho.imprime() #imprime pai tb
 
 # dai vc pode mudar o que uma funçao do pai faz no filho caso vc queira.. por exemplo:
 
 class Filho2(Pai):
     def imprime(self):
-        print 'Filho' #agora fai imprimir filho
+        print('Filho') #agora fai imprimir filho
 
 # descomenta pra ver
-# pai = Pai()
-# pai.imprime()  # imprime pai
-# filho2 = Filho2()
-# filho2.imprime()  # imprime filho agora
+pai = Pai()
+pai.imprime()  # imprime pai
+filho2 = Filho2()
+filho2.imprime()  # imprime filho agora
 
 # se vc colocar funções no pai, todos os filhos vao ter a função
 # se vc colocar funções no filho, o pai não pode usar!
@@ -36,28 +36,43 @@ class Filho2(Pai):
 # mas os itens podem ser meramente um texto, uma marcação na agenda (ter data) ou ter tb uma lista de coisas
 
 class ToDoItem:
-    def setText(self, text_sent):
+    def setText(self, text_sent: str):
         self.text = text_sent
 
-    def setTitle(self, title_sent):
+    def setTitle(self, title_sent: str):
         self.title = title_sent
 
-    def getText(self):
+    def getText(self) -> str:
         return self.text
 
-    def getTitle(self):
+    def getTitle(self) -> str:
         return self.title
 
-    def __str__(self):
+    def __str__(self) -> str:
         return 'Title: ' + self.getTitle() + '  text: ' + self.getText()
 
 class ToDoDateItem(ToDoItem): #sobrescreva os dois getCoisa pra retornar texto incluindo a data
-    def setDate(self, date_sent):
+    def setDate(self, date_sent: str):
         self.date = date_sent
 
+    def getDate(self) -> str:
+        return self.date
+
+    # def getText(self) -> str:
+    #     return self.text + ' date: ' + self.getDate()
+
+    def __str__(self) -> str:
+        return 'Title: ' + self.getTitle() + '  text: ' + self.getText() + '  date:  ' + self.getDate()
+
 class ToDoListItem(ToDoItem):  # sobrescreva os dois getCoisa pra retornar texto incluindo a lista
-    def setList(self, list_sent):
+    def setList(self, list_sent: list):
         self.list = list_sent
+
+    def getList(self) -> list:
+        return self.list
+
+    def __str__(self) -> str:
+        return 'Title: ' + self.getTitle() + '  text: ' + self.getText() + '  list:  ' + str(self.getList())
 
 # não mude nada daqui em diante! Faça funcionar dessa forma :)
 import random
@@ -85,5 +100,5 @@ for i in range(10):
 
 
 for coisa in coisas_a_fazer:
-    print coisa
+    print(coisa)
 

@@ -19,8 +19,8 @@ class Pai:
         self.public_number = '52525252525'
 
 janio = Pai() #executa o __init__ aqui
-print janio.public_number # pega o numero publico e imprime
-# print janio.__private_number # não funciona! Teste descomentando essa linha
+print(janio.public_number) # pega o numero publico e imprime
+# print (janio.__private_number) # não funciona! Teste descomentando essa linha
 
 # O __init__ também pode receber coisas:
 
@@ -29,9 +29,9 @@ class Mae:
         self.__private_number = str(ddd) + '8282828282'
         self.public_number = str(ddd) + '52525252525'
 
-ana = Mae('91') #executa o __init__ aqui
-print ana.public_number # pega o numero publico e imprime junto com o ddd
-# print ana.__private_number # não funciona denovo!
+ana = Mae(91) #executa o __init__ aqui
+print(ana.public_number) # pega o numero publico e imprime junto com o ddd
+# print (ana.__private_number) # não funciona denovo!
 
 # Variáveis e funções privadas são usadas pra evitar que o código fique confuso.
 # Dai quem fez uma classe so libera a informação o que os outros tem que ver pra funcionarem
@@ -43,21 +43,39 @@ print ana.public_number # pega o numero publico e imprime junto com o ddd
 # pra pegar o numero de uma letra use ord() e pra pegar a letra a partir do numero use chr()
 # isso por exemplo adiciona 10 (a chave) na letra c: chr(ord('c')+10)
 
+import random
+
 class Criptographer:
-    def __init__(self): #criar uma chave randomica
-        pass
+    def __init__(self): #criar uma chave privada randomica
+        self.__chave = random.Random().randint(2,40)
 
-    def criptograph(self, text):
-        return '' # retorna o text cripografado
+    def criptograph(self, text: str) -> str:
+        self.textoMudado = ''
+        for i in range(len(text)):
+            numeroDaLetra = ord(text[i])
+            letraMudada = chr(int(numeroDaLetra*self.__chave))
+            if i == 0:
+                self.textoMudado = letraMudada
+            else:
+                self.textoMudado = self.textoMudado + letraMudada
+        return self.textoMudado # retorna o text cripografado
 
-    def decriptograph(self, criptographed_text):
-        return '' # retorna o text descripografado
+    def decriptograph(self, criptographed_text: str) -> str:
+        self.textoOriginal = ''
+        for i in range(len(criptographed_text)):
+            numeroDaLetra = ord(criptographed_text[i])
+            letraOriginal = chr(int(numeroDaLetra / self.__chave))
+            if i == 0:
+                self.textoOriginal = letraOriginal
+            else:
+                self.textoOriginal = self.textoOriginal + letraOriginal
+        return self.textoOriginal # retorna o text descripografado
 
 # Não Mexer nada depois daqui!
 cript = Criptographer()
 texto = 'Legal!'
 texto_criptografado = cript.criptograph(texto)
-print texto_criptografado
+print(texto_criptografado)
 texto_de_volta = cript.decriptograph(texto_criptografado)
-print texto_de_volta
+print(texto_de_volta)
 
