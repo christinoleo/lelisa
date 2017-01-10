@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<casa>
+	<dono>Lelisa</dono>
+	<adjuntos>
+		<pessoa>Leo</pessoa>
+		<pessoa>Joel</pessoa>
+		<pessoa>Rita</pessoa>
+		<pessoa>Wilson</pessoa>
+	</adjuntos>
+	<animal>
+		<tipo>Gato</tipo>
+		<nome>Pantera</nome>
+		<cor>Preto</cor>
+	</animal>
+	<animal>
+		<tipo>Gato</tipo>
+		<nome>Cinzinha</nome>
+		<cor>Cinza</cor>
+	</animal>
+	<animal>
+		<tipo>Gato</tipo>
+		<nome>Branquinho</nome>
+		<cor>Branco e cinza</cor>
+	</animal>
+	<animal>
+		<tipo>Cachorro</tipo>
+		<nome>Simba</nome>
+		<cor>Caramelo</cor>
+	</animal>
+	<animal>
+		<tipo>Jabuti</tipo>
+		<nome>Tartaruga</nome>
+		<cor>Musgo</cor>
+	</animal>
+</casa>
